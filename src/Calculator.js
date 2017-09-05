@@ -21,7 +21,7 @@ class Calculator extends Component {
                 <NumArea clickHandler={this._changeDisplay}/>
                 <MathOps />
             </div>
-        );
+        )
     }
 
     _clear = () => {

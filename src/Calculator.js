@@ -31,10 +31,37 @@ class Calculator extends Component {
     }
 
     _space = (operator) => {
-        this.setState({
-            displayNumber: this.state.displayNumber.concat([operator])
-        })
+        if (operator === '='){
+            // this._finalDisplay
+            var numString = this.state.displayNumber.toString();
+            var operatorIndex = numString.indexOf("+");
+            var num1 = parseInt(numString.substring(0,operatorIndex));
+            var num2 = parseInt(numString.substring(operatorIndex+1, numString.length));
+            console.log(num1);
+            console.log(num2);
+            var numFinal = num1 + num2;
+            this.setState({
+                displayNumber: numFinal
+            });
+        } else {
+            this.setState({
+                displayNumber: this.state.displayNumber.concat([operator])
+            })
+        }
     }
+
+    // _finalDisplay = () => {
+    //     var numString = this.state.displayNumber.toString();
+    //     var operatorIndex = numString.indexOf("+");
+    //     var num1 = parseInt(numString.substring(0,operatorIndex));
+    //     var num2 = parseInt(numString.substring(operatorIndex, numString.length-1));
+    //     console.log(num1);
+    //     console.log(num2);
+    //     var numFinal = num1 + num2;
+    //     this.setState({
+    //         displayNumber: numFinal
+    //     });
+    // }
 
     _changeDisplay = (num) => {
         this.setState({

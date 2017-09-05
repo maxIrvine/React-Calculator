@@ -9,7 +9,7 @@ class Calculator extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            displayNumber: ""
+            displayNumber: []
         }
     }
 
@@ -32,7 +32,7 @@ class Calculator extends Component {
 
     _changeDisplay = (num) => {
         this.setState({
-            displayNumber: "" + this.state.displayNumber + num 
+            displayNumber: this.state.displayNumber.concat([num]) 
         });
         console.log("The number is: " + this.state.displayNumber);
     }

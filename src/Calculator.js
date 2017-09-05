@@ -9,31 +9,32 @@ class Calculator extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            displayNumber: 0
+            displayNumber: ""
         }
     }
 
     render () {
         return (
-            <div>
-                <Display num={this.state.displayNumber}/>
+            <div className="calcBody">
+                <Display num={this.state.displayNumber} className="display"/>
                 <Clear clickHandler={this._clear}/>
                 <NumArea clickHandler={this._changeDisplay}/>
                 <MathOps />
             </div>
-        )
+        );
     }
 
     _clear = () => {
         this.setState({
-            displayNumber: 0
+            displayNumber: ""
         });
     }
 
-    _changeDisplay = ({num}) => {
+    _changeDisplay = (num) => {
         this.setState({
-            displayNumber: this.state.displayNumber + num
+            displayNumber: "" + this.state.displayNumber + num 
         });
+        console.log("The number is: " + this.state.displayNumber);
     }
 }
 

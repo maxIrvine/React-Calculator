@@ -1,12 +1,22 @@
 import React from 'react';
 
-let MathOps = () => (
+let MathOps = ({clickHandler}) => (
     <div>
-        <button>/</button>
-        <button>*</button>
-        <button>-</button>
-        <button>+</button>
-        <button>=</button>
+        <button onClick={() => {
+                clickHandler("/")    
+        }}>/</button>
+        <button onClick={() => {
+                clickHandler("*")    
+        }}>*</button>
+        <button onClick={() => {
+                clickHandler("-")    
+        }}>-</button>
+        <button onClick={() => {
+                clickHandler("+")    
+        }}>+</button>
+        <button onClick={() => {
+                clickHandler("=")    
+        }}>=</button>
     </div>
 )
 

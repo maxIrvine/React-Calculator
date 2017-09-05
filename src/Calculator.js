@@ -19,7 +19,7 @@ class Calculator extends Component {
                 <Display num={this.state.displayNumber} className="display"/>
                 <Clear clickHandler={this._clear}/>
                 <NumArea clickHandler={this._changeDisplay}/>
-                <MathOps />
+                <MathOps clickHandler={this._space}/>
             </div>
         );
     }
@@ -28,6 +28,12 @@ class Calculator extends Component {
         this.setState({
             displayNumber: ""
         });
+    }
+
+    _space = (operator) => {
+        this.setState({
+            displayNumber: this.state.displayNumber.concat([operator])
+        })
     }
 
     _changeDisplay = (num) => {
